@@ -4,11 +4,16 @@ import Card from "../ui/Card";
 import classes from "./MeetupItem.module.css";
 
 import FavoritesContext from "../../store/favorites-context";
+import CartsContext from "../../store/cart-context";
 
 function MeetupItem(props) {
   const favoritesCtx = useContext(FavoritesContext);
 
   const itemIsFavorite = favoritesCtx.itemIsFavorite(props.id);
+
+  const cartsCtx = useContext(CartsContext);
+
+  const itemIsCart = cartsCtx.itemIsCart(props.id);
 
   function toggleFavoritesStatusHandler() {
     if (itemIsFavorite) {
@@ -23,6 +28,21 @@ function MeetupItem(props) {
       });
     }
   }
+
+  function toggleCartsStatusHandler() {
+    if (itemIsCart) {
+      cartsCtx.removeCart(props.id);
+    } else {
+      cartsCtx.addCart({
+        id: props.id,
+        title: props.title,
+        description: props.description,
+        image: props.image,
+        address: props.address,
+      });
+    }
+  }
+
   return (
     <li className={classes.item}>
       <Card>
@@ -38,7 +58,11 @@ function MeetupItem(props) {
           <button onClick={toggleFavoritesStatusHandler}>
             {itemIsFavorite ? "Remove from Favorites" : "Add to Favorites"}
           </button>
+          <button onClick={toggleCartsStatusHandler}>
+            {itemIsCart ? "Remove from Cart" : "Add to Cart"}
+          </button>
         </div>
+        <div className={classes.actions}></div>
       </Card>
     </li>
   );

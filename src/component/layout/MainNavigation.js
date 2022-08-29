@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 
 import classes from "./MainNavigation.module.css";
 import FavoritesContext from "../../store/favorites-context";
+import CartsContext from "../../store/cart-context";
 
 function MainNavigation() {
   const favoritesCtx = useContext(FavoritesContext);
+  const cartsCtx = useContext(CartsContext);
 
   return (
     <header className={classes.header}>
@@ -24,6 +26,12 @@ function MainNavigation() {
               <span className={classes.badge}>
                 {favoritesCtx.totalFavorites}
               </span>
+            </Link>
+          </li>
+          <li>
+            <Link to="/cart">
+              My Cart
+              <span className={classes.badge}>{cartsCtx.totalCarts}</span>
             </Link>
           </li>
         </ul>
