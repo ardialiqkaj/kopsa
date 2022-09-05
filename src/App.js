@@ -5,6 +5,7 @@ import NewMeetupPage from "./pages/NewMeetup";
 import FavoritesPage from "./pages/Favorites";
 import Layout from "./component/layout/Layout";
 import CartPage from "./pages/Cart";
+import NewUserPage from "./pages/NewUser";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/favorites" element={<FavoritesPage />} />
         <Route path="/new-meetup" element={<NewMeetupPage />} />
         <Route path="/cart" element={<CartPage />} />
+        <Route path="/register" element={<NewUserPage />} />
       </Routes>
     </Layout>
   );

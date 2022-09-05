@@ -11,14 +11,14 @@ function MainNavigation() {
 
   return (
     <header className={classes.header}>
-      <div className={classes.logo}>React Meetups</div>
+      <div className={classes.logo}>Kopsa</div>
       <nav>
         <ul>
           <li>
-            <Link to="/">All Meetups</Link>
+            <Link to="/">All Items</Link>
           </li>
           <li>
-            <Link to="/new-meetup">Add New Meetup</Link>
+            <Link to="/new-meetup">Add New Item</Link>
           </li>
           <li>
             <Link to="/favorites">
@@ -33,6 +33,9 @@ function MainNavigation() {
               My Cart
               <span className={classes.badge}>{cartsCtx.totalCarts}</span>
             </Link>
+          </li>
+          <li>
+            <Link to="/register">Register</Link>
           </li>
         </ul>
       </nav>
