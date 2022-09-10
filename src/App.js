@@ -1,11 +1,11 @@
 import { Route, Routes } from "react-router-dom";
-
 import AllMeetupsPage from "./pages/AllMeetups";
 import NewMeetupPage from "./pages/NewMeetup";
 import FavoritesPage from "./pages/Favorites";
 import Layout from "./component/layout/Layout";
 import CartPage from "./pages/Cart";
-import NewUserPage from "./pages/NewUser";
+import Register from "./authentication/Register";
+import Login from "./authentication/Login";
 
 function App() {
   return (
@@ -15,7 +15,8 @@ function App() {
         <Route path="/favorites" element={<FavoritesPage />} />
         <Route path="/new-meetup" element={<NewMeetupPage />} />
         <Route path="/cart" element={<CartPage />} />
-        <Route path="/register" element={<NewUserPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </Layout>
   );

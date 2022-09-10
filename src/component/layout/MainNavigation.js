@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-
 import classes from "./MainNavigation.module.css";
 import FavoritesContext from "../../store/favorites-context";
 import CartsContext from "../../store/cart-context";
@@ -35,7 +34,7 @@ function MainNavigation() {
             </Link>
           </li>
           <li>
-            <Link to="/register">Register</Link>
+            <Link to="/login">Login</Link>
           </li>
         </ul>
       </nav>
